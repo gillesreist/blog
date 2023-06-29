@@ -1,5 +1,7 @@
 <?php
-function lastBlogPosts($bdd) {
-    $posts = array();
-    return $posts;
+function lastBlogPosts($bdd)
+{
+    $sql = file_get_contents('database/lastBlogPosts.sql');
+    $result = $bdd->query($sql);
+    return $result;
 }

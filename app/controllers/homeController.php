@@ -1,4 +1,11 @@
 <?php
 require "app/persistences/blogPostData.php";
 
-var_dump(lastBlogPosts($pdo));
+$posts = lastBlogPosts($pdo);
+
+if ($posts) {
+    foreach ($posts as $indice => $article) {
+        var_dump($article);
+        echo '</br>';
+    }
+}

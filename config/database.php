@@ -18,8 +18,5 @@ $pdo = new PDO($dsn, $user, $pass, $options);
 throw new PDOException($e->getMessage(), (int)$e->getCode());
 }
 
-$sql = "SELECT * FROM authors";
-$statement = $pdo->query($sql);
-
 
 

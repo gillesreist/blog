@@ -13,6 +13,8 @@ $routes = [
 
 $render="";
 
+require "config/database.php";
+
 ob_start();
 
 if (!empty($routes[$action])) {

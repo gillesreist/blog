@@ -5,6 +5,8 @@ error_reporting(E_ALL);
 
 session_start();
 
+require "config/database.php";
+
 $action = filter_input(INPUT_GET, "action", FILTER_SANITIZE_URL);
 
 $routes = [
@@ -13,15 +15,13 @@ $routes = [
 
 $render="";
 
-require "config/database.php";
-
 ob_start();
 
 if (!empty($routes[$action])) {
     require $routes[$action];
 } else {
     header("HTTP/1.0 404 Not Found");
-    require "404.php";
+    require "ressources/views/errors/404.php";
 }
 
 $render = ob_get_clean();

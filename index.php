@@ -16,10 +16,10 @@ $render="";
 ob_start();
 
 if (!empty($routes[$action])) {
-    include $routes[$action];
+    require $routes[$action];
 } else {
     header("HTTP/1.0 404 Not Found");
-    include "404.php";
+    require "404.php";
 }
 
 $render = ob_get_clean();

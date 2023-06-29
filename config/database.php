@@ -1,4 +1,5 @@
-<?php $host = '127.0.0.1';
+<?php
+$host = '127.0.0.1';
 $db   = 'blog';
 $user = 'damabiah';
 $pass = '1234';
@@ -18,14 +19,7 @@ throw new PDOException($e->getMessage(), (int)$e->getCode());
 }
 
 $sql = "SELECT * FROM authors";
-$result = $pdo->query($sql);
+$statement = $pdo->query($sql);
 
-if ($result->rowCount() > 0) {
-    // output data of each row
-    while($row = $result->fetch(PDO::FETCH_ASSOC)) {
-        echo "id : " . $row["id"]. " - Pseudo : " . $row["pseudonyme"]. " - Nom : " . $row["firstname"]. " - Prénom : " . $row["surname"]. "<br>";
-    }
-} else {
-    echo "0 results";
-}
+
 

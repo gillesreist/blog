@@ -1,7 +1,7 @@
 <?php
 $host = '127.0.0.1';
 $db   = 'blog';
-$user = 'damabiah';
+$user = 'blog';
 $pass = '1234';
 $port = "3306";
 $charset = 'utf8mb4';

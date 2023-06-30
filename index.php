@@ -5,12 +5,11 @@ error_reporting(E_ALL);
 
 session_start();
 
-require "config/database.php";
-
 $action = filter_input(INPUT_GET, "action", FILTER_SANITIZE_URL);
 
 $routes = [
-    '' => 'app/controllers/homeController.php'
+    '' => 'app/controllers/homeController.php',
+    'blogpost' => 'app/controllers/blogPostController.php'
 ];
 
 $render="";

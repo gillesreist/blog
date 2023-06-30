@@ -1,17 +1,18 @@
 <?php
-require "ressources/views/header.tpl.php";
 
-$posts = lastBlogPosts($pdo);
+require "ressources/views/layouts/header.tpl.php";
 
-if ($posts):
-    foreach ($posts as $index => $article) {
-        foreach ($article as $key => $value) {
+if ($articles) {
+    foreach ($articles as $article)
+        foreach ($article as $key => $value)
             echo $value . " ";
-        }
-        echo '</br>';
-    }
-else:
-    echo "Il n'y a pas d'articles.";
-endif;
 
-require "ressources/views/footer.tpl.php";
+        echo '</br>';
+
+}else {
+    echo "Il n'y a pas d'articles.";
+}
+
+
+require "ressources/views/layouts/footer.tpl.php";
+

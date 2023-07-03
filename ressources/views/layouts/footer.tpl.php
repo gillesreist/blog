@@ -1,2 +1,4 @@
-<?php
-echo "</br></br>footer";
+    <footer>
+        <p>Footer</p>
+    </footer>
+</html>

@@ -1,15 +1,34 @@
 <?php
-
 require "ressources/views/layouts/header.tpl.php";
+?>
+<main>
+    <div>
+        <a href="/">Retour à la page principale.</a>
+    </div>
+    <?php if ($article): ?>
 
-if ($article) {
-    foreach ($article as $key => $value) echo $value . "</br>";
+        <article>
+            <div><?= $article["datef"] ?></div>
+            <h1><?= $article["title"] ?></h1>
+            <div><?= $article["text"] ?></div>
+            <div><?= $article["pseudonyme"] ?></div>
+        </article>
+    <?php else: ?>
+        <div>Cet article n'existe pas.</div>
+    <?php endif ?>
+    <?php if ($comments): ?>
+        <div>
+            <?php foreach ($comments as $comment): ?>
+                <div>
+                    <div><?= $comment["pseudonyme"] ?></div>
+                    <div><?= $comment["datef"] ?></div>
+                    <div><?= $comment["text"] ?></div>
+                </div>
+            <?php endforeach ?>
+        </div>
+    <?php endif ?>
+</main>
 
-    foreach ($comments as $comment)
-        foreach ($comment as $value)
-            echo $value . "</br>";
-} else {
-    echo "Cet article n'existe pas";
-}
-
+<?php
 require "ressources/views/layouts/footer.tpl.php";
+?>

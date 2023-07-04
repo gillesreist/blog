@@ -14,8 +14,8 @@ if (!empty($_POST)) {
     $error = errorBlogPost($donnees);
 
     if (empty($error)) {
-        blogPostCreate($donnees['title'],$donnees['text'],$donnees['date_start'],$donnees['date_end'],$donnees['importance'],$donnees['authors_id']);
-        header("Location: /");
+       $articleId = blogPostCreate($donnees['title'],$donnees['text'],$donnees['date_start'],$donnees['date_end'],$donnees['importance'],$donnees['authors_id']);
+        header("Location: ?action=blogPost&id=$articleId");
         exit();
 
     } else {

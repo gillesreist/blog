@@ -8,9 +8,17 @@ $articleId = filter_input(INPUT_GET, "id", FILTER_SANITIZE_URL);
 
 $article = blogPostById($articleId);
 
-$comments = commentsByBlogPost($articleId);
+if (!empty($article)) {
 
-$metaTitle = $article['title'];
-$metaDescription = $article['title'];
+    $comments = commentsByBlogPost($articleId);
 
-require "ressources/views/blogPost.tpl.php";
+    $metaTitle = $article['title'];
+    $metaDescription = $article['title'];
+
+    require "ressources/views/blogPost.tpl.php";
+
+}else{
+    header("HTTP/1.0 404 Not Found");
+    require "ressources/views/errors/404.php";
+    exit();
+}

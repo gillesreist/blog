@@ -7,5 +7,5 @@ FROM articles
 WHERE
    articles.date_start <= NOW()
 AND
-    articles.date_end > NOW()
+    articles.date_end >= NOW()
 ORDER BY date_start DESC LIMIT 10;

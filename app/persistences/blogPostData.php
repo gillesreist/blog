@@ -12,7 +12,7 @@ function lastBlogPosts():array
     return $result;
 }
 
-function blogPostById(int $articleID):array
+function blogPostById(int $articleID): array|bool
 {
     global $pdo;
     $sql = file_get_contents('database/blogPostId.sql');
@@ -32,14 +32,14 @@ function commentsByBlogPost(int $articleID):array
     return $result;
 }
 
-function blogPostCreate(string $title, string $text, string $date_start, string $date_end, int $importance, int $authors_id):void
+function blogPostCreate(string $title, string $text, string $date_start, string $date_end, int $importance, int $authors_id):int
 {
     global $pdo;
 
     $sql = "INSERT INTO articles (title, text, date_start, date_end, importance, authors_id) VALUES (:title, :text, :date_start, :date_end, :importance, :authors_id)";
     $statement = $pdo->prepare($sql);
     $statement->execute(['title' => $title, 'text' => $text, 'date_start'=>$date_start,'date_end'=>$date_end,'importance'=>$importance,'authors_id'=>$authors_id]);
-
+    return $pdo->lastInsertId();
 }
 
 function blogPostUpdate(string $title, string $text, string $date_start, string $date_end, int $importance, int $authors_id, int $id):void
@@ -50,4 +50,15 @@ function blogPostUpdate(string $title, string $text, string $date_start, string 
     $statement = $pdo->prepare($sql);
     $statement->execute(['title' => $title, 'text' => $text, 'date_start'=>$date_start,'date_end'=>$date_end,'importance'=>$importance,'authors_id'=>$authors_id,'id'=>$id]);
 
+}
+
+function blogPostDelete(int $id):void
+{
+    global $pdo;
+
+    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, 1);
+
+    $sql = "DELETE FROM comments WHERE articles_id=:id; DELETE FROM articles WHERE id=:id";
+    $statement = $pdo->prepare($sql);
+    $statement->execute(['id'=>$id]);
 }

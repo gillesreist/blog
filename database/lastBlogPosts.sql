@@ -4,4 +4,8 @@ SELECT articles.title,
        authors.pseudonyme
 FROM articles
          INNER JOIN authors ON authors.id = articles.authors_id
+WHERE
+   articles.date_start <= NOW()
+AND
+    articles.date_end > NOW()
 ORDER BY date_start DESC LIMIT 10;

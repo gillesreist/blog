@@ -9,7 +9,8 @@ $action = filter_input(INPUT_GET, "action", FILTER_SANITIZE_URL);
 
 $routes = [
     '' => 'app/controllers/homeController.php',
-    'blogpost' => 'app/controllers/blogPostController.php'
+    'blogpost' => 'app/controllers/blogPostController.php',
+    'blogpostCreate' => 'app/controllers/blogPostCreateController.php'
 ];
 
 $render="";

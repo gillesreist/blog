@@ -18,11 +18,12 @@ require "ressources/views/layouts/header.tpl.php";
     else : ?>
         <div>Il n'y a pas d'articles.</div>
     <?php endif ?>
+    <div>
+        <a href="?action=blogpostCreate">Créer un nouvel article.</a>
+    </div>
 </main>
 
 <?php
 require "ressources/views/layouts/footer.tpl.php";
 ?>
-
-</>
 

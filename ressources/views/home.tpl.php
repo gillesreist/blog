@@ -12,14 +12,14 @@ require "ressources/views/layouts/header.tpl.php";
         <article>
            <div><?= $article["datef"] ?></div>
            <div><?= $article["pseudonyme"] ?></div>
-           <h2><a href="?action=blogpost&id=<?= $article["id"]?>"><?= $article["title"] ?></a></h2>
+           <h2><a href="?action=blogPost&id=<?= $article["id"]?>"><?= $article["title"] ?></a></h2>
        </article>
     <?php endforeach;
     else : ?>
         <div>Il n'y a pas d'articles.</div>
     <?php endif ?>
     <div>
-        <a href="?action=blogpostCreate">Créer un nouvel article.</a>
+        <a href="?action=blogPostCreate">Créer un nouvel article.</a>
     </div>
 </main>
 

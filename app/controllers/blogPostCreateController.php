@@ -23,7 +23,7 @@ if (!empty($_POST)) {
         $_SESSION['error'] = $error;
         $_SESSION['donnees'] = $donnees;
 
-        header("Location: ?action=blogpostCreate");
+        header("Location: ?action=blogPostCreate");
         exit();
     }
 }

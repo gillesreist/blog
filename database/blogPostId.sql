@@ -1,5 +1,4 @@
-SELECT articles.title,
-       articles.text,
+SELECT articles.*,
        date_format(articles.date_start, '%d/%m/%Y') AS datef,
        authors.pseudonyme
 FROM articles

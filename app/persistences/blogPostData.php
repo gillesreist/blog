@@ -41,3 +41,13 @@ function blogPostCreate(string $title, string $text, string $date_start, string 
     $statement->execute(['title' => $title, 'text' => $text, 'date_start'=>$date_start,'date_end'=>$date_end,'importance'=>$importance,'authors_id'=>$authors_id]);
 
 }
+
+function blogPostUpdate(string $title, string $text, string $date_start, string $date_end, int $importance, int $authors_id, int $id):void
+{
+    global $pdo;
+
+    $sql = "UPDATE articles SET title=:title, text=:text, date_start=:date_start, date_end=:date_end, importance=:importance, authors_id=:authors_id WHERE id=:id";
+    $statement = $pdo->prepare($sql);
+    $statement->execute(['title' => $title, 'text' => $text, 'date_start'=>$date_start,'date_end'=>$date_end,'importance'=>$importance,'authors_id'=>$authors_id,'id'=>$id]);
+
+}

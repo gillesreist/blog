@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <title>
-        <?=$metaTitle?>>
+        <?=$metaTitle?>
     </title>
     <meta name="description" content="<?=$metaDescription?>">
     <link rel="stylesheet" type="text/css" href="style.css">

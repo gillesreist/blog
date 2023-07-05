@@ -6,6 +6,7 @@ $metaDescription = 'Nouvelle publication';
 require "app/persistences/blogPostData.php";
 require "app/utils/functions.php";
 
+$categories = catList();
 
 if (!empty($_POST)) {
 
@@ -14,7 +15,7 @@ if (!empty($_POST)) {
     $error = errorBlogPost($donnees);
 
     if (empty($error)) {
-       $articleId = blogPostCreate($donnees['title'],$donnees['text'],$donnees['date_start'],$donnees['date_end'],$donnees['importance'],$donnees['authors_id']);
+       $articleId = blogPostCreate($donnees['title'],$donnees['text'],$donnees['date_start'],$donnees['date_end'],$donnees['importance'],$donnees['authors_id'],$donnees['categorie1'],$donnees['categorie2'],$donnees['categorie3']);
         header("Location: ?action=blogPost&id=$articleId");
         exit();
 
@@ -37,5 +38,3 @@ if (isset($_SESSION['error']) || isset($_SESSION['donnees'])) {
 
 
 require "ressources/views/blogPostCreate.tpl.php";
-
-

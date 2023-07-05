@@ -1,3 +1,4 @@
+<?php ?>
 <div class="champsTexte">
     <div>
         <label for="title">Titre de l'article :</label>
@@ -32,4 +33,4 @@
                value="<?= $donnees["authors_id"] ?? '' ?>">
     </div>
     <div class="error"><?= $error["authors_idErr"] ?? '' ?></div>
-</div>
+

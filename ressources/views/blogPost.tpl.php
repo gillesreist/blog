@@ -10,6 +10,11 @@ require "ressources/views/layouts/header.tpl.php";
         <article>
             <div><?= $article["datef"] ?></div>
             <h1><?= $article["title"] ?></h1>
+            <div class="categories">
+            <?php foreach ($cats as $cat): ?>
+                <?= $cat['name']."\n" ?>
+            <?php endforeach ?>
+            </div>
             <div><?= $article["text"] ?></div>
             <div><?= $article["pseudonyme"] ?></div>
         </article>

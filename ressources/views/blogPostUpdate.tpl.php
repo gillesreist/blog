@@ -11,6 +11,7 @@ require "ressources/views/layouts/header.tpl.php";
                 <h1>Modifier cet article.</h1>
             </div>
             <?php require "ressources/views/layouts/articleForm.tpl.php" ?>
+            </div>
             <div class="button">
                 <button type="submit">Modifier</button>
             </div>

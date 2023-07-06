@@ -1,6 +1,14 @@
 <?php
-
+header("Content-Type: text/html;charset=utf-8");
 require "config/database.php";
+
+function login(string $pseudo):array|bool {
+    global $pdo;
+    $sql = "SELECT * FROM authors WHERE pseudonyme=?";
+    $result = $pdo->prepare($sql);
+    $result->execute([$pseudo]);
+    return $result->fetch(PDO::FETCH_ASSOC);
+}
 
 function lastBlogPosts(int $cat=0): array
 {
@@ -53,7 +61,7 @@ function catList(): array
     return $data->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function blogPostCreate(string $title, string $text, string $date_start, string $date_end, int $importance, int $authors_id, int $categorie1, int $categorie2, int $categorie3): int
+function blogPostCreate(string $title, string $text, string $date_start, string $date_end, int $importance, int $categorie1, int $categorie2, int $categorie3): int
 {
     global $pdo;
 
@@ -79,13 +87,13 @@ function blogPostCreate(string $title, string $text, string $date_start, string 
     return $id;
 }
 
-function blogPostUpdate(string $title, string $text, string $date_start, string $date_end, int $importance, int $authors_id, int $id): void
+function blogPostUpdate(string $title, string $text, string $date_start, string $date_end, int $importance, int $id): void
 {
     global $pdo;
 
-    $sql = "UPDATE articles SET title=:title, text=:text, date_start=:date_start, date_end=:date_end, importance=:importance, authors_id=:authors_id WHERE id=:id";
+    $sql = "UPDATE articles SET title=:title, text=:text, date_start=:date_start, date_end=:date_end, importance=:importance WHERE id=:id";
     $statement = $pdo->prepare($sql);
-    $statement->execute(['title' => $title, 'text' => $text, 'date_start' => $date_start, 'date_end' => $date_end, 'importance' => $importance, 'authors_id' => $authors_id, 'id' => $id]);
+    $statement->execute(['title' => $title, 'text' => $text, 'date_start' => $date_start, 'date_end' => $date_end, 'importance' => $importance, 'id' => $id]);
 
 }
 

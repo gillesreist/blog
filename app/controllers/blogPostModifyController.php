@@ -11,12 +11,14 @@ $categories = catList();
 
 $articleId = filter_input(INPUT_GET, "id", FILTER_SANITIZE_URL);
 
+
+
 if (!empty($_POST)) {
     $donnees = cleanBLogPost();
     $error = errorBlogPost($donnees);
 
     if (empty($error)) {
-        blogPostUpdate($donnees['title'], $donnees['text'], $donnees['date_start'], $donnees['date_end'], $donnees['importance'], $donnees['authors_id'], $articleId);
+        blogPostUpdate($donnees['title'], $donnees['text'], $donnees['date_start'], $donnees['date_end'], $donnees['importance'], $articleId);
         header("Location: ?action=blogPost&id=$articleId");
 
     } else {
@@ -27,7 +29,11 @@ if (!empty($_POST)) {
     exit();
 } else {
     $donnees = blogPostById($articleId);
-    if (empty($donnees)) {
+    if ($donnees['pseudonyme'] != $_SESSION['pseudonyme']) {
+        header("HTTP/1.1 403 Forbidden");
+        require "ressources/views/errors/403.php";
+        exit();
+    } elseif (empty($donnees)) {
         header("HTTP/1.0 404 Not Found");
         require "ressources/views/errors/404.php";
         exit();

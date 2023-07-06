@@ -35,10 +35,12 @@ require "ressources/views/layouts/header.tpl.php";
         <?php endforeach;
     else : ?>
         <div>Il n'y a pas d'articles.</div>
+    <?php endif;
+    if (isset($_SESSION['pseudonyme'])):?>
+        <div>
+            <a href="?action=blogPostCreate">Créer un nouvel article.</a>
+        </div>
     <?php endif ?>
-    <div>
-        <a href="?action=blogPostCreate">Créer un nouvel article.</a>
-    </div>
 </main>
 
 <?php

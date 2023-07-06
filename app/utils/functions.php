@@ -8,7 +8,6 @@ function cleanBLogPost(): array
         "date_start" => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
         "date_end" => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
         "importance" => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
-        "authors_id" => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
         "categorie1" => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
         "categorie2" => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
         "categorie3" => FILTER_SANITIZE_FULL_SPECIAL_CHARS,

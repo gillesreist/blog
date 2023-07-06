@@ -27,10 +27,4 @@
                value="<?= $donnees["importance"] ?? '' ?>">
     </div>
     <div class="error"><?= $error["importanceErr"] ?? '' ?></div>
-    <div>
-        <label for="authors_id">Id de l'auteur :</label>
-        <input type="number" id="authors_id" name="authors_id" min="1" max="5"
-               value="<?= $donnees["authors_id"] ?? '' ?>">
-    </div>
-    <div class="error"><?= $error["authors_idErr"] ?? '' ?></div>
 

@@ -20,14 +20,16 @@ require "ressources/views/layouts/header.tpl.php";
         </article>
     <?php else: ?>
         <div>Cet article n'existe pas.</div>
-    <?php endif ?>
-    <div>
-        <a href="?action=blogPostModify&id=<?= $article["id"]?>">Modifier cet article.</a>
-    </div>
-    <div>
-        <a href="?action=blogPostDelete&id=<?= $article["id"]?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article et les commentaires associés ?');">Supprimer cet article.</a>
-    </div>
-    <?php if ($comments): ?>
+    <?php endif;
+    if ($creator): ?>
+        <div>
+            <a href="?action=blogPostModify&id=<?= $article["id"]?>">Modifier cet article.</a>
+        </div>
+        <div>
+            <a href="?action=blogPostDelete&id=<?= $article["id"]?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article et les commentaires associés ?');">Supprimer cet article.</a>
+        </div>
+    <?php endif;
+    if ($comments): ?>
         <div>
             <?php foreach ($comments as $comment): ?>
                 <div>

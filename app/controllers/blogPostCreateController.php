@@ -3,14 +3,23 @@
 $metaTitle = 'Publier';
 $metaDescription = 'Nouvelle publication';
 
+if (!isset($_SESSION['id'])) {
+    header("HTTP/1.1 403 Forbidden");
+    require "ressources/views/errors/403.php";
+    exit();
+}
+
 require "app/persistences/blogPostData.php";
 require "app/utils/functions.php";
+
 
 $categories = catList();
 
 if (!empty($_POST)) {
 
+    var_dump($_POST);
     $donnees = cleanBLogPost();
+    $donnees['authors_id'] = filter_var($_SESSION['id'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
     $error = errorBlogPost($donnees);
 

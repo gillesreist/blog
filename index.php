@@ -12,7 +12,9 @@ $routes = [
     'blogPost' => 'app/controllers/blogPostController.php',
     'blogPostCreate' => 'app/controllers/blogPostCreateController.php',
     'blogPostModify' => 'app/controllers/blogPostModifyController.php',
-    'blogPostDelete' => 'app/controllers/blogPostDeleteController.php'
+    'blogPostDelete' => 'app/controllers/blogPostDeleteController.php',
+    'login' => 'app/controllers/loginController.php',
+    'logout' => 'app/controllers/logoutController.php'
 ];
 
 $render="";

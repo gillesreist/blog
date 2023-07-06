@@ -21,7 +21,7 @@ require "ressources/views/layouts/header.tpl.php";
     <?php else: ?>
         <div>Cet article n'existe pas.</div>
     <?php endif;
-    if ($creator): ?>
+    if (isset($creator) && $creator) : ?>
         <div>
             <a href="?action=blogPostModify&id=<?= $article["id"]?>">Modifier cet article.</a>
         </div>

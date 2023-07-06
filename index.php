@@ -14,7 +14,8 @@ $routes = [
     'blogPostModify' => 'app/controllers/blogPostModifyController.php',
     'blogPostDelete' => 'app/controllers/blogPostDeleteController.php',
     'login' => 'app/controllers/loginController.php',
-    'logout' => 'app/controllers/logoutController.php'
+    'logout' => 'app/controllers/logoutController.php',
+    'rss' => 'app/controllers/rssController.php'
 ];
 
 $render="";

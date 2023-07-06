@@ -113,3 +113,13 @@ function blogPostDelete(int $id): void
     $statement = $pdo->prepare($sql);
     $statement->execute(['id' => $id]);
 }
+
+function getRSS(): array
+{
+    global $pdo;
+
+    $sql = "SELECT * FROM articles ORDER BY id DESC LIMIT 20";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    return $query->fetchAll(PDO::FETCH_ASSOC);
+}

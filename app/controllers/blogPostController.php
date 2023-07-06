@@ -7,11 +7,11 @@ $article = blogPostById($articleId);
 
 
 if (!empty($article)) {
-
-    $creator = $article['pseudonyme'] == $_SESSION['pseudonyme'];
-
+    if (isset($_SESSION['pseudonyme'])) {
+        $creator = $article['pseudonyme'] == $_SESSION['pseudonyme'];
+    }
     $categories = catList();
-    $cats= postCats($articleId);
+    $cats = postCats($articleId);
 
     $comments = commentsByBlogPost($articleId);
 
@@ -20,7 +20,7 @@ if (!empty($article)) {
 
     require "ressources/views/blogPost.tpl.php";
 
-}else{
+} else {
     header("HTTP/1.0 404 Not Found");
     require "ressources/views/errors/404.php";
     exit();
